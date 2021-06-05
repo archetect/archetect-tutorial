@@ -1,0 +1,32 @@
+---
+script:
+
+  - set:
+      class:
+        prompt: "What is the name of your class?"
+
+      ClassName:
+        value: "{{ class | pascal_case }}"
+
+      className:
+        value: "{{ class | camel_case }}"
+
+  - print: |
+      public class {{ ClassName }} {
+          private static {{ ClassName }} {{ className }} = new {{ ClassName }}();
+
+          private {{ ClassName }}(){}
+
+          public static {{ ClassName }} getInstance(){
+             return {{ className }};
+          }
+
+          public void printMessage() {
+              System.out.println("This is a contrived example. You can try this at home... but don't try it at work!");
+          }
+
+          public static void main(String[] args) {
+              {{ ClassName }}.getInstance().printMessage();
+          }
+      }
+
