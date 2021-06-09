@@ -2,6 +2,19 @@
 script:
 
   - set:
+      name:
+        prompt: "What is your name?"
+
+  - display: "Hello, {{ name | title_case }}!"
+
+  - display: |
+
+      Let's generate a simple Java class...
+
+      We'll begin by prompting for the name of our class, and then create variables in different casings as needed
+      in our template.
+
+  - set:
       class:
         prompt: "What is the name of your class?"
 
@@ -10,6 +23,10 @@ script:
 
       className:
         value: "{{ class | camel_case }}"
+
+  - info: "Our PascalCased class name is '{{ ClassName }}'"
+  - debug: "Our camelCased field name is '{{ className }}'"
+
 
   - print: |
       public class {{ ClassName }} {
