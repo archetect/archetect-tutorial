@@ -1,0 +1,17 @@
+---
+script:
+
+  - set:
+      class:
+        prompt: "What is the name of your class?"
+
+      ClassName:
+        value: "{{ class | pascal_case }}"
+
+      className:
+        value: "{{ class | camel_case }}"
+
+  - render:
+      directory:
+        source: contents
+
